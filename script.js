@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     // 1. Sticky Header
     const header = document.getElementById('header');
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
             header.style.height = '70px';
@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Mobile Menu Toggle
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
-    
+
     if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
+        mobileToggle.addEventListener('click', function () {
             navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
-            
+
             // Add mobile menu styles dynamically if needed, or toggle a class
             if (navMenu.style.display === 'block') {
                 navMenu.style.position = 'absolute';
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.style.backgroundColor = 'white';
                 navMenu.style.padding = '20px';
                 navMenu.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
-                
+
                 const navList = navMenu.querySelector('.nav-list');
                 navList.style.flexDirection = 'column';
                 navList.style.alignItems = 'flex-start';
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             // Close mobile menu if open
             if (window.innerWidth < 1024 && navMenu.style.display === 'block') {
                 navMenu.style.display = 'none';
@@ -51,12 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = header.offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -68,13 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // 4. Form Validation
     const inquiryForm = document.querySelector('.inquiry-form');
     if (inquiryForm) {
-        inquiryForm.addEventListener('submit', function(e) {
+        inquiryForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Basic validation
             const inputs = inquiryForm.querySelectorAll('input[required], select[required]');
             let isValid = true;
-            
+
             inputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
@@ -83,15 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.style.borderColor = 'var(--border-color)';
                 }
             });
-            
+
             if (isValid) {
                 // Simulate form submission
                 const submitBtn = inquiryForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
-                
+
                 submitBtn.innerText = 'Sending...';
                 submitBtn.disabled = true;
-                
+
                 setTimeout(() => {
                     alert('Thank you for your inquiry! We will contact you within 24 hours.');
                     inquiryForm.reset();
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
-    
+
     // Add CSS for animation class
     const style = document.createElement('style');
     style.innerHTML = `
