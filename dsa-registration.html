@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a DSA Partner - RR Trust Capital Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dsa-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo.jpg" alt="RR Trust Capital Solutions Logo" class="logo-img">
+            </div>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">← Back to Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- DSA Registration Form -->
+    <section class="dsa-form-section">
+        <div class="container">
+            <div class="dsa-form-card">
+                <div class="form-header">
+                    <h1>Become a DSA Partner – RR Trust Capital Solutions</h1>
+                    <p>Partner with RR Trust Capital Solutions as a Direct Selling Agent (DSA) for multi-product loan distribution across India. Please fill in the details below and our team will connect with you.</p>
+                </div>
+
+                <form id="dsaForm" action="/submit-dsa-application" method="post" enctype="multipart/form-data">
+                    
+                    <!-- A. Personal Details -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-user"></i> Personal Details</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full_name">Full Name (as per PAN)*</label>
+                                <input type="text" id="full_name" name="full_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number*</label>
+                                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="whatsapp">WhatsApp Number (if different)</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{10}">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email ID*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob">
+                            </div>
+                            <div class="form-group">
+                                <label for="pan">PAN Number*</label>
+                                <input type="text" id="pan" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" placeholder="ABCDE1234F">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="aadhaar">Aadhaar Number (last 4 digits)</label>
+                                <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{4}" placeholder="XXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Current City*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="state">State*</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="maharashtra">Maharashtra</option>
+                                    <option value="gujarat">Gujarat</option>
+                                    <option value="delhi">Delhi</option>
+                                    <option value="karnataka">Karnataka</option>
+                                    <option value="tamil-nadu">Tamil Nadu</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">Pincode*</label>
+                                <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- B. Business / Firm Details -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-building"></i> Business / Firm Details</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="applicant_type">Are you applying as:*</label>
+                                <select id="applicant_type" name="applicant_type" required>
+                                    <option value="">Select Type</option>
+                                    <option value="individual">Individual / Freelancer</option>
+                                    <option value="proprietor">Proprietor</option>
+                                    <option value="partnership">Partnership Firm</option>
+                                    <option value="company">Pvt. Ltd. / LLP</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="firm_name">Firm / Business Name (if applicable)</label>
+                                <input type="text" id="firm_name" name="firm_name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="experience">Years of Experience in Finance / Loan Industry</label>
+                                <select id="experience" name="experience">
+                                    <option value="">Select Experience</option>
+                                    <option value="0-1">0–1 year</option>
+                                    <option value="1-3">1–3 years</option>
+                                    <option value="3-5">3–5 years</option>
+                                    <option value="5+">5+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="existing_dsa">Existing DSA Code with any Bank / NBFC?*</label>
+                                <select id="existing_dsa" name="existing_dsa" required onchange="toggleDSADetails()">
+                                    <option value="">Select</option>
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="dsa_details_group" style="display: none;">
+                            <label for="existing_dsa_details">If Yes, list Banks / NBFCs</label>
+                            <textarea id="existing_dsa_details" name="existing_dsa_details" rows="3" placeholder="List the banks/NBFCs you are associated with"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="business_volume">Current Monthly Business Volume</label>
+                            <textarea id="business_volume" name="business_volume" rows="3" placeholder="Number of Files Logged per Month & Approx. Disbursement Value per Month"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- C. Product Interest -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-list-check"></i> Product Interest</legend>
+                        <p class="section-desc">Which products do you want to source?*</p>
+                        
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="personal_loan">
+                                <span class="checkmark"></span>
+                                Personal Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="business_loan">
+                                <span class="checkmark"></span>
+                                Business Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="lap">
+                                <span class="checkmark"></span>
+                                Loan Against Property (LAP)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="home_loan">
+                                <span class="checkmark"></span>
+                                Home Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="od">
+                                <span class="checkmark"></span>
+                                Overdraft (Secured / Unsecured)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="new_vehicle">
+                                <span class="checkmark"></span>
+                                New Vehicle Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="used_vehicle">
+                                <span class="checkmark"></span>
+                                Used Vehicle Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="machinery">
+                                <span class="checkmark"></span>
+                                Machinery Loan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="products[]" value="construction_equipment">
+                                <span class="checkmark"></span>
+                                Construction Equipment Loan
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="other_products">Other Products (specify)</label>
+                            <input type="text" id="other_products" name="other_products" placeholder="Specify other loan products">
+                        </div>
+                    </fieldset>
+
+                    <!-- D. Operating Geography & Setup -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-map-marker-alt"></i> Operating Geography & Setup</legend>
+                        
+                        <div class="form-group">
+                            <label for="working_locations">Preferred Working Location(s)*</label>
+                            <textarea id="working_locations" name="working_locations" rows="3" required placeholder="City / Area / Pincodes where you plan to operate"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="office_setup">Do you have an office setup?*</label>
+                                <select id="office_setup" name="office_setup" required>
+                                    <option value="">Select</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="team_size">Team Size</label>
+                                <select id="team_size" name="team_size">
+                                    <option value="">Select</option>
+                                    <option value="only_myself">Only Myself</option>
+                                    <option value="2-5">2–5 Members</option>
+                                    <option value="5-10">5–10 Members</option>
+                                    <option value="10+">10+ Members</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Primary Sourcing Style (Multi-select)</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="sourcing_style[]" value="field_sourcing">
+                                    <span class="checkmark"></span>
+                                    Field Sourcing
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="sourcing_style[]" value="telecalling">
+                                    <span class="checkmark"></span>
+                                    Telecalling
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="sourcing_style[]" value="digital_leads">
+                                    <span class="checkmark"></span>
+                                    Digital / Online Leads
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="sourcing_style[]" value="dealer_network">
+                                    <span class="checkmark"></span>
+                                    Dealer / Connector Network
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- E. Bank Details -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-university"></i> Bank Details (Optional)</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="account_holder_name">Account Holder Name</label>
+                                <input type="text" id="account_holder_name" name="account_holder_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank_name">Bank Name</label>
+                                <input type="text" id="bank_name" name="bank_name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="branch">Branch</label>
+                                <input type="text" id="branch" name="branch">
+                            </div>
+                            <div class="form-group">
+                                <label for="account_number">Account Number</label>
+                                <input type="text" id="account_number" name="account_number">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ifsc_code">IFSC Code</label>
+                                <input type="text" id="ifsc_code" name="ifsc_code" pattern="[A-Z]{4}0[A-Z0-9]{6}">
+                            </div>
+                            <div class="form-group">
+                                <label for="upi_id">UPI ID (optional)</label>
+                                <input type="text" id="upi_id" name="upi_id">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- F. Document Upload -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-upload"></i> Document Upload</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pan_card">PAN Card (PDF / JPG)*</label>
+                                <input type="file" id="pan_card" name="pan_card" accept=".pdf,.jpg,.jpeg,.png" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhaar_card">Aadhaar Card (Front & Back)*</label>
+                                <input type="file" id="aadhaar_card" name="aadhaar_card" accept=".pdf,.jpg,.jpeg,.png" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="passport_photo">Recent Passport Size Photo*</label>
+                                <input type="file" id="passport_photo" name="passport_photo" accept=".jpg,.jpeg,.png" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cancelled_cheque">Cancelled Cheque / Bank Passbook*</label>
+                                <input type="file" id="cancelled_cheque" name="cancelled_cheque" accept=".pdf,.jpg,.jpeg,.png" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address_proof">Address Proof (if different from Aadhaar)</label>
+                                <input type="file" id="address_proof" name="address_proof" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="firm_registration">Firm Registration / GST Certificate</label>
+                                <input type="file" id="firm_registration" name="firm_registration" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="visiting_card">Visiting Card (if available)</label>
+                            <input type="file" id="visiting_card" name="visiting_card" accept=".jpg,.jpeg,.png">
+                        </div>
+                    </fieldset>
+
+                    <!-- G. Consent & Declaration -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-check-circle"></i> Consent & Declaration</legend>
+                        
+                        <div class="consent-checkboxes">
+                            <label class="consent-item">
+                                <input type="checkbox" name="consent_info" required>
+                                <span class="checkmark"></span>
+                                I confirm that the information provided above is true and correct to the best of my knowledge.*
+                            </label>
+                            
+                            <label class="consent-item">
+                                <input type="checkbox" name="consent_verification" required>
+                                <span class="checkmark"></span>
+                                I authorize RR Trust Capital Solutions to verify my details and documents with relevant authorities / institutions, if required.*
+                            </label>
+                            
+                            <label class="consent-item">
+                                <input type="checkbox" name="consent_communication" required>
+                                <span class="checkmark"></span>
+                                I agree to receive communication (call/SMS/WhatsApp/email) from RR Trust Capital Solutions regarding DSA empanelment, products, and payout-related information.*
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="dsa-form.js"></script>
+</body>
+
+</html>

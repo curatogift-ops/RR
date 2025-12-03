@@ -90,60 +90,60 @@
 
             <div class="products-grid">
                 <!-- Card 1 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('personal')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-briefcase"></i></div>
                     <h3 class="product-name">Personal Loan</h3>
                     <p class="product-desc">Quick funds for your personal needs.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('personal')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 2 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('business')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-building"></i></div>
                     <h3 class="product-name">Business Loan</h3>
                     <p class="product-desc">Capital to grow your business.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('business')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 3 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('home')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-home"></i></div>
                     <h3 class="product-name">Home Loan</h3>
                     <p class="product-desc">Your dream home, now a reality.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('home')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 4 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('lap')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-city"></i></div>
                     <h3 class="product-name">LAP</h3>
                     <p class="product-desc">Loan Against Property solutions.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('lap')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 5 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('vehicle')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-car"></i></div>
                     <h3 class="product-name">Vehicle Loan</h3>
                     <p class="product-desc">Drive your dream car today.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('vehicle')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 6 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('education')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3 class="product-name">Education Loan</h3>
                     <p class="product-desc">Invest in your future education.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('education')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 7 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('credit-card')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-credit-card"></i></div>
                     <h3 class="product-name">Credit Card</h3>
                     <p class="product-desc">Best rewards and offers.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('credit-card')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <!-- Card 8 -->
-                <div class="product-card">
+                <div class="product-card" onclick="navigateToForm('working-capital')" style="cursor: pointer;">
                     <div class="product-icon"><i class="fas fa-coins"></i></div>
                     <h3 class="product-name">Working Capital</h3>
                     <p class="product-desc">Manage your daily operations.</p>
-                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry-form" class="product-link" onclick="event.stopPropagation(); setLoanType('working-capital')">Apply Now <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -240,7 +240,7 @@
                     <li><i class="fas fa-check"></i> CRM & Training Access</li>
                 </ul>
 
-                <a href="#contact" class="btn btn-primary btn-large">Register as DSA Partner</a>
+                <a href="dsa-registration.html" class="btn btn-primary btn-large">Register as DSA Partner</a>
             </div>
         </div>
     </section>
@@ -305,37 +305,84 @@
                 <h2 class="form-title">Quick Loan Inquiry</h2>
                 <p class="form-subtitle">Get a callback in 24 hours</p>
 
-                <form class="inquiry-form">
-                    <div class="form-group">
-                        <label for="fullname">Full Name*</label>
-                        <input type="text" id="fullname" name="fullname" required>
+                <form class="inquiry-form" id="leadForm" action="/submit-loan-enquiry" method="post">
+                    <!-- Common Fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="loan-type">Loan Type*</label>
+                            <select id="loan-type" name="loan_type" required onchange="showProductFields()">
+                                <option value="">Select Loan Type</option>
+                                <option value="personal">Personal Loan</option>
+                                <option value="business">Business Loan</option>
+                                <option value="home">Home Loan</option>
+                                <option value="lap">LAP</option>
+                                <option value="vehicle">Vehicle Loan</option>
+                                <option value="education">Education Loan</option>
+                                <option value="credit-card">Credit Card</option>
+                                <option value="working-capital">Working Capital</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fullname">Full Name*</label>
+                            <input type="text" id="fullname" name="full_name" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number*</label>
-                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number*</label>
+                            <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="whatsapp" name="whatsapp_allowed">
+                                <label for="whatsapp">WhatsApp allowed</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email ID</label>
+                            <input type="email" id="email" name="email">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address*</label>
-                        <input type="email" id="email" name="email" required>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City / Location*</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="employment-type">Employment Type*</label>
+                            <select id="employment-type" name="employment_type" required>
+                                <option value="">Select</option>
+                                <option value="salaried">Salaried</option>
+                                <option value="self-employed">Self-Employed</option>
+                                <option value="business-owner">Business Owner</option>
+                                <option value="student">Student</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="loan-type">Select Loan Type*</label>
-                        <select id="loan-type" name="loan-type" required>
-                            <option value="">Select...</option>
-                            <option value="personal">Personal Loan</option>
-                            <option value="business">Business Loan</option>
-                            <option value="home">Home Loan</option>
-                            <option value="lap">LAP</option>
-                            <option value="vehicle">Vehicle Loan</option>
-                            <option value="education">Education Loan</option>
-                            <option value="working-capital">Working Capital</option>
-                        </select>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="income">Monthly Income / Turnover (Approx.)*</label>
+                            <input type="number" id="income" name="income" required placeholder="₹">
+                        </div>
+                        <div class="form-group">
+                            <label for="loan-amount">Required Loan Amount*</label>
+                            <input type="number" id="loan-amount" name="loan_amount" required placeholder="₹">
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="amount">Loan Amount</label>
-                        <input type="number" id="amount" name="amount">
+                        <label for="tenure">Preferred Tenure (in months)</label>
+                        <input type="number" id="tenure" name="tenure" placeholder="e.g., 12, 24, 36">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">Submit Inquiry</button>
+
+                    <!-- Product-Specific Fields -->
+                    <div id="product-fields"></div>
+
+
+
+                    <button type="submit" class="btn btn-primary btn-full">Submit Enquiry</button>
                 </form>
             </div>
         </div>
@@ -452,6 +499,7 @@
 
 
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 </body>
 
 </html>
