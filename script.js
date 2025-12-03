@@ -39,6 +39,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const dropdownToggles = document.querySelectorAll('.nav-item.dropdown > .nav-link');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+            if (window.innerWidth < 1024 || navMenu.style.display === 'block') {
+                e.preventDefault();
+                const menu = this.parentElement.querySelector('.dropdown-menu');
+                const isVisible = menu && menu.style.display === 'block';
+                document.querySelectorAll('.dropdown-menu').forEach(m => { m.style.display = 'none'; });
+                if (menu) menu.style.display = isVisible ? 'none' : 'block';
+            }
+        });
+    });
+
     // 3. Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
