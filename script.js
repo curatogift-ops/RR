@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // 1. Sticky Header
     const header = document.getElementById('header');
 
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            header.style.height = '70px';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = 'none';
-            header.style.height = '80px';
+            header.classList.remove('scrolled');
         }
     });
 
@@ -19,22 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function () {
-            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
-
-            // Add mobile menu styles dynamically if needed, or toggle a class
-            if (navMenu.style.display === 'block') {
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.backgroundColor = 'white';
-                navMenu.style.padding = '20px';
-                navMenu.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
-
-                const navList = navMenu.querySelector('.nav-list');
-                navList.style.flexDirection = 'column';
-                navList.style.alignItems = 'flex-start';
-                navList.style.gap = '16px';
+            if (navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+            } else {
+                navMenu.classList.add('open');
             }
         });
     }
@@ -57,9 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
-            // Close mobile menu if open
-            if (window.innerWidth < 1024 && navMenu.style.display === 'block') {
-                navMenu.style.display = 'none';
+            if (window.innerWidth < 1024 && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
             }
 
             const targetId = this.getAttribute('href');
