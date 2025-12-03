@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan - RR Trust Capital Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="apply-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo.jpg" alt="RR Trust Capital Solutions Logo" class="logo-img">
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">← Back to Home</a></li>
+                    <li class="nav-item"><a href="index.html#products" class="nav-link">Our Products</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Apply Form Section -->
+    <section class="apply-form-section">
+        <div class="container">
+            <!-- Product Selection Header -->
+            <div class="product-selection-header">
+                <h1 id="page-title">Apply for Loan</h1>
+                <p id="page-subtitle">Choose your loan type and fill in the details below</p>
+
+                
+                <!-- Product Type Selector -->
+                <div class="product-type-selector">
+                    <div class="product-tabs">
+                        <button class="product-tab" data-product="personal">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Personal Loan</span>
+                        </button>
+                        <button class="product-tab" data-product="business">
+                            <i class="fas fa-building"></i>
+                            <span>Business Loan</span>
+                        </button>
+                        <button class="product-tab" data-product="home">
+                            <i class="fas fa-home"></i>
+                            <span>Home Loan</span>
+                        </button>
+                        <button class="product-tab" data-product="lap">
+                            <i class="fas fa-city"></i>
+                            <span>LAP</span>
+                        </button>
+                        <button class="product-tab" data-product="vehicle">
+                            <i class="fas fa-car"></i>
+                            <span>Vehicle Loan</span>
+                        </button>
+                        <button class="product-tab" data-product="education">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education Loan</span>
+                        </button>
+                        <button class="product-tab" data-product="credit-card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit Card</span>
+                        </button>
+                        <button class="product-tab" data-product="working-capital">
+                            <i class="fas fa-coins"></i>
+                            <span>Working Capital</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <div class="application-form-card">
+                <div class="form-header">
+                    <h2 id="form-title">Loan Application Form</h2>
+                    <p id="form-description">Please fill in all the required details to process your application</p>
+                </div>
+
+                <form id="applicationForm" action="/submit-loan-application" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="selected-loan-type" name="loan_type" value="">
+                    
+                    <!-- Common Fields -->
+                    <fieldset class="form-section">
+                        <legend><i class="fas fa-user"></i> Personal Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full_name">Full Name*</label>
+                                <input type="text" id="full_name" name="full_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile Number*</label>
+                                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="whatsapp_allowed" name="whatsapp_allowed">
+                                    <label for="whatsapp_allowed">WhatsApp allowed</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email ID</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City / Location*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="employment_type">Employment Type*</label>
+                                <select id="employment_type" name="employment_type" required>
+                                    <option value="">Select</option>
+                                    <option value="salaried">Salaried</option>
+                                    <option value="self-employed">Self-Employed</option>
+                                    <option value="business-owner">Business Owner</option>
+                                    <option value="student">Student</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="income">Monthly Income / Turnover (Approx.)*</label>
+                                <input type="number" id="income" name="income" required placeholder="₹">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loan_amount">Required Loan Amount*</label>
+                                <input type="number" id="loan_amount" name="loan_amount" required placeholder="₹">
+                            </div>
+                            <div class="form-group">
+                                <label for="tenure">Preferred Tenure (in months)</label>
+                                <input type="number" id="tenure" name="tenure" placeholder="e.g., 12, 24, 36">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Product-Specific Fields Container -->
+                    <div id="product-specific-fields"></div>
+
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                        <p class="form-note">We'll contact you within 24 hours to process your application</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-overlay" style="display: none;">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Application Submitted Successfully!</h3>
+            <p>Thank you for choosing RR Trust Capital Solutions. Our team will review your application and contact you within 24 hours.</p>
+            <div class="success-actions">
+                <button onclick="closeSuccessMessage()" class="btn btn-primary">Continue</button>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="apply-form.js"></script>
+</body>
+
+</html>

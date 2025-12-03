@@ -1,5 +1,39 @@
 // DSA Form Handler
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+        
+        // Close menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').className = 'fas fa-bars';
+            }
+        });
+    }
     const form = document.getElementById('dsaForm');
     
     // Toggle DSA Details field
@@ -169,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li>DSA agreement and onboarding process</li>
                     <li>Training and system access setup</li>
                 </ul>
-                <p>For any queries, contact us at <strong>90990 09881</strong> or <strong>maruti.pol@rrtrust.com</strong></p>
+                <p>For any queries, contact us at <strong>90990 09881 / 90990 09882</strong> or <strong>info@rrtrustcapitalsolutions.com</strong></p>
             </div>
         `;
         
