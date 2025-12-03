@@ -37,6 +37,9 @@
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease-in-out;
+
+    /* Header */
+    --header-height: 96px;
 }
 
 /* 2. RESET & BASE STYLES */
@@ -274,7 +277,7 @@ p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
-    height: 70px;
+    height: var(--header-height);
     display: flex;
     align-items: center;
     transition: var(--transition-normal);
@@ -282,8 +285,9 @@ p {
 
 @media (min-width: 768px) {
     .header {
-        height: 80px;
+        height: 110px;
     }
+    :root { --header-height: 110px; }
 }
 
 .header-container {
@@ -311,13 +315,14 @@ p {
 }
 
 .logo-img {
-    height: 32px;
+    height: 64px;
     width: auto;
+    object-fit: contain;
 }
 
 @media (min-width: 768px) {
     .logo-img {
-        height: 40px;
+        height: 84px;
     }
 }
 
@@ -464,8 +469,7 @@ p {
 /* 7. HERO SECTION */
 .hero {
     position: relative;
-    padding-top: 90px;
-    /* Header height + padding for mobile */
+    padding-top: calc(var(--header-height) + 20px);
     padding-bottom: 40px;
     background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
     /* Placeholder */
@@ -475,12 +479,11 @@ p {
     min-height: 500px;
     display: flex;
     align-items: flex-start;
-    padding-top: 120px;
 }
 
 @media (min-width: 768px) {
     .hero {
-        padding-top: 120px;
+        padding-top: calc(var(--header-height) + 40px);
         padding-bottom: 60px;
         min-height: 600px;
         align-items: center;
@@ -1121,6 +1124,16 @@ p {
     margin-bottom: 20px;
 }
 
+.footer-logo .logo-img {
+    height: 96px;
+}
+
+@media (max-width: 768px) {
+    .footer-logo .logo-img {
+        height: 80px;
+    }
+}
+
 .footer-desc {
     margin-bottom: 24px;
     max-width: 300px;
@@ -1353,7 +1366,7 @@ uct Fields Mobile Responsiveness */
     }
     
     .logo-img {
-        height: 35px;
+        height: 64px;
     }
     
     .nav-menu {
