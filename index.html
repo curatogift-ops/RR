@@ -32,7 +32,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a href="#products" class="nav-link">Loans <i class="fas fa-chevron-down"></i></a>
+                        <a href="#products" class="nav-link">Loan Products <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="apply-form.html?type=personal">Personal Loan</a></li>
                             <li><a href="apply-form.html?type=business">Business Loan</a></li>
@@ -43,14 +43,14 @@
                             <li><a href="apply-form.html?type=credit-card">Credit Card</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="dsa-registration.html" class="nav-link">DSA Partnership</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="dsa-registration.html" class="nav-link">Partner Program</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Company</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Support</a></li>
                 </ul>
             </nav>
 
             <div class="header-cta">
-                <a href="dsa-registration.html" class="btn btn-primary">DSA Partner</a>
+                <a href="dsa-registration.html" class="btn btn-primary">Register as DSA Partner</a>
 
                 <div class="mobile-toggle" id="mobile-toggle">
                     <i class="fas fa-bars"></i>
@@ -63,20 +63,41 @@
     <section class="hero" id="home">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">Integrated Finance Suite for Individuals and Businesses</h1>
+            <h1 class="hero-title">One Platform for Loans &amp; DSA Partnerships</h1>
             <p class="hero-subtitle">Personal, Business, Mortgage, Commercial & Vehicle Loans with transparent
                 processing, multi-bank access and dedicated support at every step.</p>
 
             <div class="hero-trust-indicators">
-                <div class="trust-badge"><i class="fas fa-check-circle"></i> Multi-Bank Network</div>
-                <div class="trust-badge"><i class="fas fa-check-circle"></i> Zero Hidden Charges</div>
+                <div class="trust-badge">
+                    <div class="badge-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="badge-text">
+                        <div class="badge-title">Multi-Bank Network</div>
+                        <div class="badge-subtitle">Access to leading banks &amp; NBFCs</div>
+                    </div>
+                </div>
+                <div class="trust-badge">
+                    <div class="badge-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="badge-text">
+                        <div class="badge-title">Zero Hidden Charges</div>
+                        <div class="badge-subtitle">Transparent fees &amp; documentation</div>
+                    </div>
+                </div>
             </div>
 
             <div class="hero-buttons">
-                <a href="#inquiry-form" class="btn btn-primary btn-large">Apply for Loan</a>
-                <a href="dsa-registration.html" class="btn btn-outline btn-large">Become DSA Partner</a>
-                <a href="https://wa.me/919099009881" class="btn btn-text-link">WhatsApp Now <i
-                        class="fas fa-arrow-right"></i></a>
+                <div class="cta-group">
+                    <a href="#inquiry-form" class="btn btn-primary btn-large">Apply for Loan</a>
+                    <div class="cta-note">Instant eligibility check</div>
+                </div>
+                <div class="cta-group">
+                    <a href="dsa-registration.html" class="btn btn-outline btn-large">Register DSA Partner</a>
+                    <div class="cta-note">Onboarding within 24&ndash;48 hours</div>
+                </div>
+                <div class="cta-group">
+                    <a href="https://wa.me/919099009881" class="btn btn-text-link">WhatsApp Now <i
+                            class="fas fa-arrow-right"></i></a>
+                    <div class="cta-note">Quick queries &amp; support</div>
+                </div>
             </div>
         </div>
     </section>
@@ -262,12 +283,32 @@
         </div>
     </section>
 
+    <section class="eligibility-section section" id="eligibility">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Eligibility</h2>
+                <p class="section-subtitle">Basic Eligibility Criteria</p>
+            </div>
+
+            <div class="eligibility-card">
+                <div class="eligibility-grid">
+                    <div class="eligibility-item"><span class="eligibility-icon"><i class="fas fa-check"></i></span><span>Minimum CIBIL score of 730+</span></div>
+                    <div class="eligibility-item"><span class="eligibility-icon"><i class="fas fa-check"></i></span><span>Aadhaar and PAN must be linked</span></div>
+                    <div class="eligibility-item"><span class="eligibility-icon"><i class="fas fa-check"></i></span><span>Mobile number registered with Aadhaar</span></div>
+                    <div class="eligibility-item"><span class="eligibility-icon"><i class="fas fa-check"></i></span><span>Smartphone with internet access for e-KYC and documentation</span></div>
+                </div>
+                <p class="eligibility-note">Final approval, loan amount and interest rate are subject to the respective partner's internal credit policies.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- KYC LOAN PARTNERS SECTION -->
     <section class="kyc-section section" id="kyc-loan">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">KYC Loan Partners</h2>
-                <p class="section-subtitle">Tap a logo to apply on the partner site</p>
+                <h2 class="section-title">KYC-Only Loan Partners</h2>
+                <p class="section-subtitle">Tap a partner logo to start your paperless loan application.</p>
+                <p class="section-subtitle">These partners provide quick personal loans based primarily on your KYC and credit profile.</p>
             </div>
 
             <div class="kyc-logos">

@@ -625,6 +625,36 @@ p {
     backdrop-filter: blur(4px);
 }
 
+.badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.badge-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.badge-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.badge-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .badge-title { font-size: 14px; }
+    .badge-subtitle { font-size: 12px; }
+}
+
 .hero-buttons {
     display: flex;
     flex-direction: column;
@@ -671,6 +701,23 @@ p {
     border-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-note {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .cta-note { font-size: 15px; }
 }
 
 /* 8. SECTIONS */
@@ -1697,4 +1744,53 @@ ntact Details Enhancement */
         padding: 8px 20px;
         font-size: 13px;
     }
+}
+.eligibility-section {
+    background-color: var(--bg-light);
+}
+
+.eligibility-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    padding: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.eligibility-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+}
+
+@media (max-width: 768px) {
+    .eligibility-card { padding: 22px; }
+    .eligibility-grid { grid-template-columns: 1fr; gap: 12px 0; }
+}
+
+.eligibility-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.eligibility-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eligibility-note {
+    margin-top: 18px;
+    color: var(--text-secondary);
+    font-size: 14px;
 }
