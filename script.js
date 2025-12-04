@@ -144,4 +144,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Partners logos toggle functionality
+    const partnersToggle = document.getElementById('partners-toggle');
+    const partnersGrid = document.querySelector('.partners-logos');
+    if (partnersToggle && partnersGrid) {
+        partnersToggle.addEventListener('click', function () {
+            const expanded = partnersGrid.classList.toggle('expanded');
+            partnersToggle.innerText = expanded ? 'Show Less' : 'View All';
+        });
+    }
+
+
 });

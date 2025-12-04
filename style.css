@@ -956,7 +956,7 @@ p {
 
 .partners-logos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(6, 1fr); /* Show 6 logos per row on desktop */
     gap: 24px;
     margin-bottom: 60px;
     justify-items: center;
@@ -1038,6 +1038,18 @@ p {
     .kyc-logos:not(.expanded) .kyc-logo:nth-child(n+5) { display: none; }
 }
 
+/* Partners logos responsive behavior */
+.partners-logos {
+    position: relative;
+    overflow: hidden;
+    max-height: 400px; /* Show approximately 4 rows on desktop */
+    transition: max-height 0.5s ease-in-out;
+}
+
+.partners-logos.expanded {
+    max-height: none;
+}
+
 /* Mobile responsiveness for bank logos */
 @media (max-width: 768px) {
     .partners-logos {
@@ -1045,6 +1057,7 @@ p {
         gap: 16px;
         margin-bottom: 40px;
         padding: 0;
+        max-height: 200px; /* Show 2 rows (4 logos) on mobile */
     }
     
     .partner-logo {
@@ -1082,10 +1095,19 @@ p {
     }
 }
 
+/* Tablet responsiveness */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .partners-logos {
+        grid-template-columns: repeat(4, 1fr);
+        max-height: 300px; /* Show 3 rows (12 logos) on tablet */
+    }
+}
+
 @media (max-width: 480px) {
     .partners-logos {
         gap: 12px;
         padding: 0;
+        max-height: 180px; /* Slightly smaller on very small screens */
     }
     
     .partner-logo {
@@ -1602,4 +1624,77 @@ ntact Details Enhancement */
 .contact-details a:hover {
     color: var(--secondary-color);
     text-decoration: underline;
+}
+/* View All button styling for partners section */
+.trust-section .center-cta {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    margin: 30px auto 20px auto;
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+
+.trust-section .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.trust-section .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #1e40af);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.trust-section .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Fade effect for hidden logos */
+.partners-logos::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, var(--bg-color));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.partners-logos.expanded::after {
+    opacity: 0;
+}
+/* Responsive adjustments for trust section button */
+@media (max-width: 768px) {
+    .trust-section .center-cta {
+        margin: 25px auto 15px auto;
+        padding: 0 20px;
+    }
+    
+    .trust-section .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-section .center-cta {
+        margin: 20px auto 10px auto;
+        padding: 0 15px;
+    }
+    
+    .trust-section .btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
 }
