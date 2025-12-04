@@ -167,6 +167,36 @@ p {
     margin-top: var(--spacing-sm);
 }
 
+.about-content {
+    margin-top: 24px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-content ul {
+    padding-left: 20px;
+}
+
+.about-subheading {
+    color: var(--text-primary);
+    margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        font-size: 15px;
+        padding: 0 8px;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        font-size: 14px;
+        padding: 0 6px;
+    }
+}
+
 /* 5. COMPONENTS */
 /* Buttons */
 .btn {
@@ -527,6 +557,17 @@ p {
     z-index: 2;
     text-align: center;
     max-width: 900px;
+}
+#about-hero .hero-content {
+    padding: 0 16px;
+}
+
+#about-hero .hero-title {
+    font-size: clamp(24px, 6vw, 42px);
+}
+
+#about-hero .hero-subtitle {
+    font-size: clamp(14px, 3.8vw, 20px);
 }
 
 .hero-title {
