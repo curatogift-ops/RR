@@ -135,4 +135,13 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     document.head.appendChild(style);
 
+    const kycToggle = document.getElementById('kyc-toggle');
+    const kycGrid = document.querySelector('.kyc-logos');
+    if (kycToggle && kycGrid) {
+        kycToggle.addEventListener('click', function () {
+            const expanded = kycGrid.classList.toggle('expanded');
+            kycToggle.innerText = expanded ? 'Show Less' : 'View All';
+        });
+    }
+
 });
