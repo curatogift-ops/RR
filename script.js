@@ -82,19 +82,43 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (isValid) {
-                // Simulate form submission
                 const submitBtn = inquiryForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
 
                 submitBtn.innerText = 'Sending...';
                 submitBtn.disabled = true;
 
-                setTimeout(() => {
-                    alert('Thank you for your inquiry! We will contact you within 24 hours.');
-                    inquiryForm.reset();
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                }, 1500);
+                // Collect data
+                const formData = new FormData(inquiryForm);
+                const data = Object.fromEntries(formData.entries());
+
+                // Send to backend
+                fetch('http://localhost:3000/submit-loan-enquiry', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            alert('Thank you for your inquiry! We will contact you within 24 hours.');
+                            inquiryForm.reset();
+                        } else {
+                            alert('Something went wrong. Please try again or contact us directly.');
+                            console.error('Error:', result.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Fallback alert if server is not running
+                        alert('Note: To send emails, please ensure the local Node.js server is running (npm start). For now, we received your click!');
+                    })
+                    .finally(() => {
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                    });
             } else {
                 alert('Please fill in all required fields.');
             }

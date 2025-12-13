@@ -476,27 +476,33 @@ document.addEventListener('DOMContentLoaded', function () {
             // Collect form data
             const formData = new FormData(form);
 
-            // Log form data for debugging
-            console.log('Application Data:');
-            for (let [key, value] of formData.entries()) {
-                console.log(key, value);
-            }
-
-            // Simulate form submission
-            setTimeout(() => {
-                // Show success message
-                document.getElementById('success-message').style.display = 'flex';
-
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-
-                // Reset form
-                form.reset();
-
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 2000);
+            // Send to backend
+            fetch('http://localhost:3000/submit-loan-application', {
+                method: 'POST',
+                body: formData // allow FormData to set Content-Type header to multipart/form-data
+            })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        // Show success message
+                        document.getElementById('success-message').style.display = 'flex';
+                        form.reset();
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        alert('Failed to submit application. Please try again.');
+                        console.error('Error:', result.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Note: To send emails, please ensure the local Node.js server is running (npm start).');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 });
