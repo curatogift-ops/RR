@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(form);
 
             // Send to backend
-            fetch('http://localhost:3000/submit-loan-application', {
+            fetch('/api/submit-loan-application', {
                 method: 'POST',
                 body: formData // allow FormData to set Content-Type header to multipart/form-data
             })

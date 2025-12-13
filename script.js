@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = Object.fromEntries(formData.entries());
 
                 // Send to backend
-                fetch('http://localhost:3000/submit-loan-enquiry', {
+                fetch('/api/submit-loan-enquiry', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const formData = new FormData(form);
 
             // Send to backend
-            fetch('http://localhost:3000/submit-dsa-application', {
+            fetch('/api/submit-dsa-application', {
                 method: 'POST',
                 body: formData
             })
