@@ -20,9 +20,10 @@
     <header class="header" id="header">
         <div class="container header-container">
             <div class="logo">
-                <a href="index.html"><img src="Gemini_Generated_Image_smnx8osmnx8osmnx-Photoroom.png" alt="RR Trust Capital Solutions Logo" class="logo-img" loading="eager"></a>
+                <a href="index.html"><img src="Gemini_Generated_Image_smnx8osmnx8osmnx-Photoroom.png"
+                        alt="RR Trust Capital Solutions Logo" class="logo-img" loading="eager"></a>
             </div>
-            
+
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html" class="nav-link">← Back to Home</a></li>
@@ -48,12 +49,18 @@
                     <h1>Onboard as a DSA Partner – RR Trust Capital Solutions</h1>
                 </div>
 
-                <form id="dsaForm" action="/submit-dsa-application" method="post" enctype="multipart/form-data">
-                    
+                <form id="dsaForm" action="https://formsubmit.co/info@rrtrustcapitalsolutions.com" method="POST"
+                    enctype="multipart/form-data">
+                    <!-- FormSubmit.co Configuration -->
+                    <input type="hidden" name="_subject" value="New DSA Partner Application">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+
                     <!-- A. Personal Details -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-user"></i> Personal Details</legend>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="full_name">Full Name (as per PAN)*</label>
@@ -83,7 +90,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="pan">PAN Number*</label>
-                                <input type="text" id="pan" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" placeholder="ABCDE1234F">
+                                <input type="text" id="pan" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                                    placeholder="ABCDE1234F">
                             </div>
                         </div>
 
@@ -121,7 +129,7 @@
                     <!-- B. Business / Firm Details -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-building"></i> Business / Firm Details</legend>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="applicant_type">Are you applying as:*</label>
@@ -162,12 +170,14 @@
 
                         <div class="form-group" id="dsa_details_group" style="display: none;">
                             <label for="existing_dsa_details">If Yes, list Banks / NBFCs</label>
-                            <textarea id="existing_dsa_details" name="existing_dsa_details" rows="3" placeholder="List the banks/NBFCs you are associated with"></textarea>
+                            <textarea id="existing_dsa_details" name="existing_dsa_details" rows="3"
+                                placeholder="List the banks/NBFCs you are associated with"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="business_volume">Current Monthly Business Volume</label>
-                            <textarea id="business_volume" name="business_volume" rows="3" placeholder="Number of Files Logged per Month & Approx. Disbursement Value per Month"></textarea>
+                            <textarea id="business_volume" name="business_volume" rows="3"
+                                placeholder="Number of Files Logged per Month & Approx. Disbursement Value per Month"></textarea>
                         </div>
                     </fieldset>
 
@@ -175,7 +185,7 @@
                     <fieldset class="form-section">
                         <legend><i class="fas fa-list-check"></i> Product Interest</legend>
                         <p class="section-desc">Which products do you want to source?*</p>
-                        
+
                         <div class="checkbox-grid">
                             <label class="checkbox-item">
                                 <input type="checkbox" name="products[]" value="personal_loan">
@@ -226,17 +236,19 @@
 
                         <div class="form-group">
                             <label for="other_products">Other Products (specify)</label>
-                            <input type="text" id="other_products" name="other_products" placeholder="Specify other loan products">
+                            <input type="text" id="other_products" name="other_products"
+                                placeholder="Specify other loan products">
                         </div>
                     </fieldset>
 
                     <!-- D. Operating Geography & Setup -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-map-marker-alt"></i> Operating Geography & Setup</legend>
-                        
+
                         <div class="form-group">
                             <label for="working_locations">Preferred Working Location(s)*</label>
-                            <textarea id="working_locations" name="working_locations" rows="3" required placeholder="City / Area / Pincodes where you plan to operate"></textarea>
+                            <textarea id="working_locations" name="working_locations" rows="3" required
+                                placeholder="City / Area / Pincodes where you plan to operate"></textarea>
                         </div>
 
                         <div class="form-row">
@@ -290,7 +302,7 @@
                     <!-- E. Bank Details -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-university"></i> Bank Details (Optional)</legend>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="account_holder_name">Account Holder Name</label>
@@ -328,7 +340,7 @@
                     <!-- F. Document Upload -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-upload"></i> Document Upload</legend>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="pan_card">PAN Card (PDF / JPG)*</label>
@@ -336,29 +348,34 @@
                             </div>
                             <div class="form-group">
                                 <label for="aadhaar_card">Aadhaar Card (Front & Back)*</label>
-                                <input type="file" id="aadhaar_card" name="aadhaar_card" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <input type="file" id="aadhaar_card" name="aadhaar_card" accept=".pdf,.jpg,.jpeg,.png"
+                                    required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="passport_photo">Recent Passport Size Photo*</label>
-                                <input type="file" id="passport_photo" name="passport_photo" accept=".jpg,.jpeg,.png" required>
+                                <input type="file" id="passport_photo" name="passport_photo" accept=".jpg,.jpeg,.png"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="cancelled_cheque">Cancelled Cheque / Bank Passbook*</label>
-                                <input type="file" id="cancelled_cheque" name="cancelled_cheque" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <input type="file" id="cancelled_cheque" name="cancelled_cheque"
+                                    accept=".pdf,.jpg,.jpeg,.png" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="address_proof">Address Proof (if different from Aadhaar)</label>
-                                <input type="file" id="address_proof" name="address_proof" accept=".pdf,.jpg,.jpeg,.png">
+                                <input type="file" id="address_proof" name="address_proof"
+                                    accept=".pdf,.jpg,.jpeg,.png">
                             </div>
                             <div class="form-group">
                                 <label for="firm_registration">Firm Registration / GST Certificate</label>
-                                <input type="file" id="firm_registration" name="firm_registration" accept=".pdf,.jpg,.jpeg,.png">
+                                <input type="file" id="firm_registration" name="firm_registration"
+                                    accept=".pdf,.jpg,.jpeg,.png">
                             </div>
                         </div>
 
@@ -371,24 +388,27 @@
                     <!-- G. Consent & Declaration -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-check-circle"></i> Consent & Declaration</legend>
-                        
+
                         <div class="consent-checkboxes">
                             <label class="consent-item">
                                 <input type="checkbox" name="consent_info" required>
                                 <span class="checkmark"></span>
-                                I confirm that the information provided above is true and correct to the best of my knowledge.*
+                                I confirm that the information provided above is true and correct to the best of my
+                                knowledge.*
                             </label>
-                            
+
                             <label class="consent-item">
                                 <input type="checkbox" name="consent_verification" required>
                                 <span class="checkmark"></span>
-                                I authorize RR Trust Capital Solutions to verify my details and documents with relevant authorities / institutions, if required.*
+                                I authorize RR Trust Capital Solutions to verify my details and documents with relevant
+                                authorities / institutions, if required.*
                             </label>
-                            
+
                             <label class="consent-item">
                                 <input type="checkbox" name="consent_communication" required>
                                 <span class="checkmark"></span>
-                                I agree to receive communication (call/SMS/WhatsApp/email) from RR Trust Capital Solutions regarding DSA empanelment, products, and payout-related information.*
+                                I agree to receive communication (call/SMS/WhatsApp/email) from RR Trust Capital
+                                Solutions regarding DSA empanelment, products, and payout-related information.*
                             </label>
                         </div>
                     </fieldset>

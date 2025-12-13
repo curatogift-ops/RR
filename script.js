@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 4. Form Validation
+    // 4. Form Validation - DISABLED to allow FormSubmit.co to handle submissions
+    // FormSubmit.co now handles all form submissions directly via POST
+    /*
     const inquiryForm = document.querySelector('.inquiry-form');
     if (inquiryForm) {
         inquiryForm.addEventListener('submit', function (e) {
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (isValid) {
-                const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+                const submitBtn = inquiryForm.querySelector('button[type=\"submit\"]');
                 const originalText = submitBtn.innerText;
 
                 submitBtn.innerText = 'Sending...';
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+    */
 
     // 5. Scroll Animations (Intersection Observer)
     const observerOptions = {

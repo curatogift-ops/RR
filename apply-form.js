@@ -462,7 +462,9 @@ document.addEventListener('DOMContentLoaded', function () {
         productSpecificFields.innerHTML = fieldsHTML;
     }
 
-    // Form submission handler
+    // Form submission handler - DISABLED to allow FormSubmit.co to handle submissions
+    // FormSubmit.co now handles all form submissions directly
+    /*
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -505,10 +507,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     }
+    */
 });
 
 // Close success message
 function closeSuccessMessage() {
     document.getElementById('success-message').style.display = 'none';
 }
-

@@ -20,7 +20,8 @@
     <header class="header" id="header">
         <div class="container header-container">
             <div class="logo">
-                <a href="index.html"><img src="Gemini_Generated_Image_smnx8osmnx8osmnx-Photoroom.png" alt="RR Trust Capital Solutions Logo" class="logo-img" loading="eager"></a>
+                <a href="index.html"><img src="Gemini_Generated_Image_smnx8osmnx8osmnx-Photoroom.png"
+                        alt="RR Trust Capital Solutions Logo" class="logo-img" loading="eager"></a>
             </div>
 
             <nav class="nav-menu" id="nav-menu">
@@ -48,7 +49,7 @@
                 <h1 id="page-title">Apply for Loan</h1>
                 <p id="page-subtitle">Choose your loan type and fill in the details below</p>
 
-                
+
                 <!-- Product Type Selector -->
                 <div class="product-type-selector">
                     <div class="product-tabs">
@@ -95,23 +96,29 @@
                     <p id="form-description">Please fill in all the required details to process your application</p>
                 </div>
 
-                <form id="applicationForm" action="/submit-loan-application" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="selected-loan-type" name="loan_type" value="">
-                    
+                <form id="applicationForm" action="https://formsubmit.co/info@rrtrustcapitalsolutions.com" method="POST"
+                    enctype="multipart/form-data">
+                    <!-- FormSubmit.co Configuration -->
+                    <input type="hidden" name="_subject" value="New Loan Application Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" id="selected-loan-type" name="Loan Type" value="">
+
                     <!-- Common Fields -->
                     <fieldset class="form-section">
                         <legend><i class="fas fa-user"></i> Personal Information</legend>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="full_name">Full Name*</label>
-                                <input type="text" id="full_name" name="full_name" required>
+                                <input type="text" id="full_name" name="Full Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile Number*</label>
-                                <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}">
+                                <input type="tel" id="mobile" name="Mobile Number" required pattern="[0-9]{10}">
                                 <div class="checkbox-group">
-                                    <input type="checkbox" id="whatsapp_allowed" name="whatsapp_allowed">
+                                    <input type="checkbox" id="whatsapp_allowed" name="WhatsApp Allowed" value="Yes">
                                     <label for="whatsapp_allowed">WhatsApp allowed</label>
                                 </div>
                             </div>
@@ -124,32 +131,33 @@
                             </div>
                             <div class="form-group">
                                 <label for="city">City / Location*</label>
-                                <input type="text" id="city" name="city" required>
+                                <input type="text" id="city" name="City" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="employment_type">Employment Type*</label>
-                                <select id="employment_type" name="employment_type" required>
+                                <select id="employment_type" name="Employment Type" required>
                                     <option value="">Select</option>
-                                    <option value="salaried">Salaried</option>
-                                    <option value="self-employed">Self-Employed</option>
-                                    <option value="business-owner">Business Owner</option>
-                                    <option value="student">Student</option>
-                                    <option value="other">Other</option>
+                                    <option value="Salaried">Salaried</option>
+                                    <option value="Self-Employed">Self-Employed</option>
+                                    <option value="Business Owner">Business Owner</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="income">Monthly Income / Turnover (Approx.)*</label>
-                                <input type="number" id="income" name="income" required placeholder="₹">
+                                <input type="text" id="income" name="Monthly Income" required placeholder="₹">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="loan_amount">Required Loan Amount*</label>
-                                <input type="number" id="loan_amount" name="loan_amount" required placeholder="₹">
+                                <input type="text" id="loan_amount" name="Required Loan Amount" required
+                                    placeholder="₹">
                             </div>
                             <div class="form-group">
                                 <label for="tenure">Preferred Tenure (in months)</label>
@@ -181,7 +189,8 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h3>Application Submitted Successfully!</h3>
-            <p>Thank you for choosing RR Trust Capital Solutions. Our team will review your application and contact you within 24 hours.</p>
+            <p>Thank you for choosing RR Trust Capital Solutions. Our team will review your application and contact you
+                within 24 hours.</p>
             <div class="success-actions">
                 <button onclick="closeSuccessMessage()" class="btn btn-primary">Continue</button>
                 <a href="index.html" class="btn btn-outline">Back to Home</a>

@@ -2,15 +2,15 @@
 function showProductFields() {
     const loanType = document.getElementById('loan-type').value;
     const productFieldsContainer = document.getElementById('product-fields');
-    
+
     // Clear existing fields
     productFieldsContainer.innerHTML = '';
-    
+
     if (!loanType) return;
-    
+
     let fieldsHTML = '<div class="product-fields"><h3>Additional Information</h3>';
-    
-    switch(loanType) {
+
+    switch (loanType) {
         case 'personal':
             fieldsHTML += `
                 <div class="form-row">
@@ -44,7 +44,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'business':
         case 'working-capital':
             fieldsHTML += `
@@ -95,7 +95,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'home':
             fieldsHTML += `
                 <div class="form-row">
@@ -131,7 +131,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'lap':
             fieldsHTML += `
                 <div class="form-row">
@@ -170,7 +170,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'vehicle':
             fieldsHTML += `
                 <div class="form-row">
@@ -209,7 +209,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'education':
             fieldsHTML += `
                 <div class="form-row">
@@ -250,7 +250,7 @@ function showProductFields() {
                 </div>
             `;
             break;
-            
+
         case 'credit-card':
             fieldsHTML += `
                 <div class="form-row">
@@ -289,12 +289,14 @@ function showProductFields() {
             `;
             break;
     }
-    
+
     fieldsHTML += '</div>';
     productFieldsContainer.innerHTML = fieldsHTML;
 }
 
-// Form submission handler
+// Form submission handler - DISABLED to allow FormSubmit.co to handle submissions
+// FormSubmit.co now handles all form submissions directly
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('leadForm');
     if (form) {
@@ -317,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+*/
 
 // Auto-fill loan type if coming from specific product card
 function setLoanType(type) {
@@ -327,10 +330,10 @@ function setLoanType(type) {
 // Navigate to form when clicking anywhere on the card
 function navigateToForm(loanType) {
     // Scroll to form
-    document.getElementById('inquiry-form').scrollIntoView({ 
-        behavior: 'smooth' 
+    document.getElementById('inquiry-form').scrollIntoView({
+        behavior: 'smooth'
     });
-    
+
     // Set loan type after a small delay to ensure form is visible
     setTimeout(() => {
         setLoanType(loanType);

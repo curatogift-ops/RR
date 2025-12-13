@@ -145,7 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Form submission
+    // Form submission - DISABLED to allow FormSubmit.co to handle submissions
+    // FormSubmit.co now handles all form submissions directly
+    /*
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -195,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     }
+    */
 
     function showSuccessMessage() {
         const successHTML = `
