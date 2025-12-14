@@ -171,21 +171,58 @@
         }
 
         @media (max-width: 768px) {
+            .success-container {
+                padding: 1rem;
+            }
+
             .success-card {
                 padding: 2rem 1.5rem;
+                margin: 0;
+            }
+
+            .success-title {
+                font-size: 1.75rem;
+            }
+
+            .success-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1.5rem;
+            }
+
+            .success-icon i {
+                font-size: 2.5rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-card {
+                padding: 1.5rem 1rem;
             }
 
             .success-title {
                 font-size: 1.5rem;
             }
 
-            .btn-container {
-                flex-direction: column;
+            .success-message {
+                font-size: 1rem;
             }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
+            .contact-info p {
+                font-size: 0.9rem;
+                word-break: break-word;
+                /* Prevent email/website overflow */
             }
         }
     </style>
@@ -198,46 +235,29 @@
                 <i class="fas fa-check-circle"></i>
             </div>
 
-            <h1 class="success-title">Submission Successful!</h1>
+            <h1 class="success-title">Thank You!</h1>
             <p class="success-message">
-                Thank you for reaching out to RR Trust Capital Solutions. We have received your application and our
-                team will review it shortly.
+                Your form has been submitted successfully. Our team will connect with you soon.
             </p>
 
-            <div class="next-steps">
-                <h3><i class="fas fa-clipboard-list"></i> What Happens Next?</h3>
-                <ul>
-                    <li>
-                        <i class="fas fa-check"></i>
-                        <span>Our team will review your application within 2-3 business hours</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i>
-                        <span>We'll contact you via phone/WhatsApp to discuss requirements</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i>
-                        <span>Document verification and eligibility check will be initiated</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i>
-                        <span>You'll receive loan offers from our partner banks/NBFCs</span>
-                    </li>
-                </ul>
-            </div>
 
             <div class="contact-info">
                 <p><strong>Need immediate assistance?</strong></p>
                 <p>Call us at <strong>+91 90990 09881 / +91 90990 09882</strong></p>
                 <p>Email: <strong>info@rrtrustcapitalsolutions.com</strong></p>
+                <p>Website: <strong><a href="https://www.rrtrustcapitalsolutions.com/" target="_blank"
+                            style="color: #1e3c72; text-decoration: none;">www.rrtrustcapitalsolutions.com</a></strong>
+                </p>
             </div>
 
             <div class="btn-container">
+
+                <a href="https://wa.me/919099009881?text=Hi, I submitted a form and need assistance" target="_blank"
+                    class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
                 <a href="index.html" class="btn btn-primary">
                     <i class="fas fa-home"></i> Back to Home
-                </a>
-                <a href="https://wa.me/919099009881" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Us
                 </a>
             </div>
         </div>
