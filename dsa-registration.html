@@ -55,6 +55,7 @@
                     <input type="hidden" name="_subject" value="New DSA Partner Application">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://rrtrustcapitalsolutions.com/success.html">
                     <input type="text" name="_honey" style="display:none">
 
                     <!-- A. Personal Details -->
@@ -80,6 +81,16 @@
                             <div class="form-group">
                                 <label for="email">Email ID*</label>
                                 <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pan">PAN Number*</label>
+                                <input type="text" id="pan" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                                    placeholder="ABCDE1234F" maxlength="10">
+                                <small style="color: #666; font-size: 0.85em;">Enter 10-character PAN (e.g.,
+                                    ABCDE1234F)</small>
                             </div>
                         </div>
 
