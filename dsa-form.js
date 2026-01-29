@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <li>DSA agreement and onboarding process</li>
                     <li>Training and system access setup</li>
                 </ul>
-                <p>For any queries, contact us at <strong>90990 09881 / 90990 09882</strong> or <strong>info@rrtrustcapitalsolutions.com</strong></p>
+                <p>For any queries, contact us at <strong>90990 09881 / 90990 09882</strong> or <strong>support@rrtc.in</strong></p>
             </div>
         `;
 

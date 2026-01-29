@@ -81,8 +81,8 @@ app.post('/submit-loan-enquiry', async (req, res) => {
     const data = req.body;
 
     const mailOptions = {
-        from: '"RR Trust Website" <info@rrtrustcapitalsolutions.com>',
-        to: 'info@rrtrustcapitalsolutions.com',
+        from: '"RR Trust Website" <support@rrtc.in>',
+        to: 'support@rrtc.in',
         subject: `New Loan Inquiry: ${data.full_name} - ${data.loan_type}`,
         html: formatEmailBody('New Quick Loan Inquiry', data)
     };
@@ -108,8 +108,8 @@ app.post('/submit-loan-application', upload.any(), async (req, res) => {
     }));
 
     const mailOptions = {
-        from: '"RR Trust Website" <info@rrtrustcapitalsolutions.com>',
-        to: 'info@rrtrustcapitalsolutions.com',
+        from: '"RR Trust Website" <support@rrtc.in>',
+        to: 'support@rrtc.in',
         subject: `New Application: ${data.full_name} - ${data.loan_type}`,
         html: formatEmailBody(`New Loan Application (${data.loan_type})`, data),
         attachments: attachments
@@ -136,8 +136,8 @@ app.post('/submit-dsa-application', upload.any(), async (req, res) => {
     }));
 
     const mailOptions = {
-        from: '"RR Trust Website" <info@rrtrustcapitalsolutions.com>',
-        to: 'info@rrtrustcapitalsolutions.com',
+        from: '"RR Trust Website" <support@rrtc.in>',
+        to: 'support@rrtc.in',
         subject: `New DSA Partner Application: ${data.full_name}`,
         html: formatEmailBody('New DSA Partner Application', data),
         attachments: attachments
