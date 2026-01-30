@@ -162,12 +162,23 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     document.head.appendChild(style);
 
+    // KYC Loan Partners Toggle
     const kycToggle = document.getElementById('kyc-toggle');
-    const kycGrid = document.querySelector('.kyc-logos');
-    if (kycToggle && kycGrid) {
+    const loanPartnersGrid = document.getElementById('loan-partners-grid');
+    if (kycToggle && loanPartnersGrid) {
         kycToggle.addEventListener('click', function () {
-            const expanded = kycGrid.classList.toggle('expanded');
+            const expanded = loanPartnersGrid.classList.toggle('expanded');
             kycToggle.innerText = expanded ? 'Show Less' : 'View All';
+        });
+    }
+
+    // Credit Card Partners Toggle
+    const ccToggle = document.getElementById('credit-card-toggle');
+    const ccGrid = document.getElementById('credit-card-partners-grid');
+    if (ccToggle && ccGrid) {
+        ccToggle.addEventListener('click', function () {
+            const expanded = ccGrid.classList.toggle('expanded');
+            ccToggle.innerText = expanded ? 'Show Less' : 'View All';
         });
     }
 
