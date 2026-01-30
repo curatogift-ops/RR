@@ -1077,7 +1077,6 @@ p {
 }
 
 /* Show limited items until expanded */
-/* Show all items always since View All button is removed
 @media (min-width: 1024px) {
     .kyc-logos:not(.expanded) .kyc-logo:nth-child(n+7) { display: none; }
 }
@@ -1085,7 +1084,6 @@ p {
 @media (max-width: 1023px) {
     .kyc-logos:not(.expanded) .kyc-logo:nth-child(n+5) { display: none; }
 }
-*/
 
 /* Partners logos responsive behavior */
 .partners-logos {
