@@ -147,9 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Form submission - DISABLED to allow FormSubmit.co to handle submissions
     // FormSubmit.co now handles all form submissions directly
-    /*
     if (form) {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             if (!validateForm()) {
@@ -166,38 +165,79 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Collect form data
             const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Add selected products and sourcing styles as they are arrays
+            const productCheckboxes = document.querySelectorAll('input[name="products[]"]:checked');
+            data.products = Array.from(productCheckboxes).map(cb => cb.value);
+            
+            const sourcingCheckboxes = document.querySelectorAll('input[name="sourcing_style[]"]:checked');
+            data.sourcing_style = Array.from(sourcingCheckboxes).map(cb => cb.value);
 
-            // Send to backend
-            fetch('/api/submit-dsa-application', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(result => {
-                    if (result.success) {
-                        showSuccessMessage();
-                        form.reset();
-                        document.getElementById('dsa_details_group').style.display = 'none';
-                        // Scroll to top
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        alert('Failed to submit application. Please try again.');
-                        console.error('Error:', result.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Note: To send emails, please ensure the local Node.js server is running (npm start).');
-                })
-                .finally(() => {
-                    // Reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    form.classList.remove('form-loading');
+            // 1. Call WhatsApp Webhook
+            const whatsappWebhookURL = 'https://wehook.campaignplus.in/webhook/69cca71e02e28c7ee4fc50a6';
+            try {
+                // Determine which number to use (whatsapp or mobile)
+                const targetNumber = data.whatsapp || data.mobile;
+                
+                await fetch(whatsappWebhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        full_name: data.full_name,
+                        mobile: targetNumber,
+                        email: data.email,
+                        city: data.city,
+                        applicant_type: data.applicant_type,
+                        form_type: 'DSA Registration'
+                    })
                 });
+                console.log('WhatsApp notification triggered');
+            } catch (error) {
+                console.error('WhatsApp Webhook Error:', error);
+                // We continue even if webhook fails, so form submission still happens
+            }
+
+            // 2. Submit to FormSubmit.co (as per the HTML action)
+            // We use the same parameters configured in the hidden inputs
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok || response.status === 200) {
+                    showSuccessMessage();
+                    form.reset();
+                    if (document.getElementById('dsa_details_group')) {
+                        document.getElementById('dsa_details_group').style.display = 'none';
+                    }
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Redirect to success page as per FormSubmit.co _next config
+                    const nextUrl = form.querySelector('input[name="_next"]')?.value;
+                    if (nextUrl) {
+                        setTimeout(() => {
+                            window.location.href = nextUrl;
+                        }, 2000);
+                    }
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Submission failed. Please try again or contact us directly.');
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                form.classList.remove('form-loading');
+            }
         });
     }
-    */
 
     function showSuccessMessage() {
         const successHTML = `

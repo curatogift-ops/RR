@@ -143,6 +143,48 @@ app.post('/submit-dsa-application', upload.any(), async (req, res) => {
         attachments: attachments
     };
 
+    // Trigger WhatsApp Webhook
+    const whatsappWebhookURL = 'https://wehook.campaignplus.in/webhook/69cca71e02e28c7ee4fc50a6';
+    try {
+        const https = require('https');
+        const targetNumber = data.whatsapp || data.mobile;
+        
+        const postData = JSON.stringify({
+            full_name: data.full_name,
+            mobile: targetNumber,
+            email: data.email,
+            city: data.city,
+            applicant_type: data.applicant_type,
+            form_type: 'DSA Registration'
+        });
+
+        const url = new URL(whatsappWebhookURL);
+        const options = {
+            hostname: url.hostname,
+            path: url.pathname + url.search,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': postData.length
+            }
+        };
+
+        const reqWh = https.request(options, (resWh) => {
+            console.log(`WhatsApp webhook Status: ${resWh.statusCode}`);
+        });
+
+        reqWh.on('error', (e) => {
+            console.error(`WhatsApp webhook error: ${e.message}`);
+        });
+
+        reqWh.write(postData);
+        reqWh.end();
+        console.log('WhatsApp notification triggered from server');
+    } catch (whError) {
+        console.error('WhatsApp Webhook Error (Server):', whError);
+        // Continue even if webhook fails
+    }
+
     try {
         await transporter.sendMail(mailOptions);
         res.json({ success: true, message: 'DSA Application submitted successfully' });
