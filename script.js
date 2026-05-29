@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (isValid) {
-                const submitBtn = inquiryForm.querySelector('button[type=\"submit\"]');
+                const submitBtn = inquiryForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
 
                 submitBtn.innerText = 'Sending...';
@@ -190,18 +190,5 @@ document.addEventListener('DOMContentLoaded', function () {
             const expanded = partnersGrid.classList.toggle('expanded');
             partnersToggle.innerText = expanded ? 'Show Less' : 'View All';
         });
-    }
-
-    // Payment pending overlay
-    if (!document.getElementById('payment-pending-overlay')) {
-        const pOverlay = document.createElement('div');
-        pOverlay.id = 'payment-pending-overlay';
-        pOverlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.98); z-index: 2147483647; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; font-family: "Inter", sans-serif; text-align: center; padding: 20px;';
-        pOverlay.innerHTML = `
-            <i class="fas fa-exclamation-triangle" style="font-size: 5rem; color: #ef4444; margin-bottom: 25px;"></i>
-            <h1 style="font-size: 3rem; margin-bottom: 15px; font-weight: 700;">Payment Pending</h1>
-            <p style="font-size: 1.5rem; max-width: 600px; line-height: 1.5;">This website has been temporarily suspended due to pending payments. Please clear your outstanding dues to the developer to restore access.</p>
-        `;
-        document.body.appendChild(pOverlay);
     }
 });
